@@ -2,17 +2,20 @@ project:
   type: website
 
 website:
-  title: "theaeonwanderer.github.io"
+  favicon: images/favicon.jpg 
+  title: "THEAEONWANDERER"
   navbar:
     right:
-      - about.qmd
+      - text: "About" 
+        file: about.qmd
       - icon: github
-        href: https://github.com/
+        href: https://github.com/theaeonwanderer
       - icon: twitter
-        href: https://twitter.com
+        href: https://twitter.com/theaeonwanderer
 format:
   html:
-    theme: cosmo
+    mainfont: "Ebrima"
+    theme: theme.scss
     css: styles.css
 
 
