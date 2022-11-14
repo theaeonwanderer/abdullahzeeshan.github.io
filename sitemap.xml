@@ -2,14 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://theaeonwanderer.github.io/about.html</loc>
-    <lastmod>2022-11-12T21:38:24.804Z</lastmod>
+    <lastmod>2022-11-14T03:08:30.654Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/index.html</loc>
-    <lastmod>2022-11-12T21:38:25.054Z</lastmod>
+    <lastmod>2022-11-14T03:08:30.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://theaeonwanderer.github.io/posts/continents_classifier/continents_classifier.html</loc>
+    <lastmod>2022-11-14T03:08:31.344Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/posts/frolicking_with_ai_generated_art/index.html</loc>
-    <lastmod>2022-11-12T21:38:25.344Z</lastmod>
+    <lastmod>2022-11-14T03:08:31.634Z</lastmod>
   </url>
 </urlset>
