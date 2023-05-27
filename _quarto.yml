@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  favicon: images/favicon.jpg 
+  favicon: images/about/profile_picture.png 
   title: "Abdullah Zeeshan"
   navbar:
     right:
@@ -12,9 +12,7 @@ website:
         href: https://github.com/theaeonwanderer
 format:
   html:
-    mainfont: "Ebrima"
-    theme: theme.scss
-    css: styles.css
+    theme: cosmo
 
 
 
