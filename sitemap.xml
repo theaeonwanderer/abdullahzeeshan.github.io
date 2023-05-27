@@ -2,26 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://theaeonwanderer.github.io/posts/our_first_times/index.html</loc>
-    <lastmod>2023-05-27T17:28:47.160Z</lastmod>
+    <lastmod>2023-05-27T19:44:46.065Z</lastmod>
+  </url>
+  <url>
+    <loc>https://theaeonwanderer.github.io/posts/segmentation/segmentation.html</loc>
+    <lastmod>2023-05-27T19:44:46.985Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/posts/continents_classifier/continents_classifier.html</loc>
-    <lastmod>2023-05-27T17:28:48.080Z</lastmod>
+    <lastmod>2023-05-27T19:44:47.915Z</lastmod>
+  </url>
+  <url>
+    <loc>https://theaeonwanderer.github.io/posts/linux_subsystem/index.html</loc>
+    <lastmod>2023-05-27T19:44:48.665Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/posts/on_blogging/index.html</loc>
-    <lastmod>2023-05-27T17:28:48.820Z</lastmod>
+    <lastmod>2023-05-27T19:44:49.495Z</lastmod>
+  </url>
+  <url>
+    <loc>https://theaeonwanderer.github.io/posts/themes_in_tb/index.html</loc>
+    <lastmod>2023-05-27T19:44:50.095Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/posts/frolicking_with_ai_generated_art/index.html</loc>
-    <lastmod>2023-05-27T17:28:49.390Z</lastmod>
+    <lastmod>2023-05-27T19:44:50.615Z</lastmod>
+  </url>
+  <url>
+    <loc>https://theaeonwanderer.github.io/posts/colored_cups/index.html</loc>
+    <lastmod>2023-05-27T19:44:51.025Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/about.html</loc>
-    <lastmod>2023-05-27T17:28:49.850Z</lastmod>
+    <lastmod>2023-05-27T19:44:51.395Z</lastmod>
   </url>
   <url>
     <loc>https://theaeonwanderer.github.io/index.html</loc>
-    <lastmod>2023-05-27T17:28:50.600Z</lastmod>
+    <lastmod>2023-05-27T19:44:52.575Z</lastmod>
   </url>
 </urlset>

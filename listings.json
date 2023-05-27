@@ -3,6 +3,10 @@
     "listing": "/index.html",
     "items": [
       "/posts/on_blogging/index.html",
+      "/posts/segmentation/segmentation.html",
+      "/posts/colored_cups/index.html",
+      "/posts/linux_subsystem/index.html",
+      "/posts/themes_in_tb/index.html",
       "/posts/continents_classifier/continents_classifier.html",
       "/posts/frolicking_with_ai_generated_art/index.html",
       "/posts/our_first_times/index.html"

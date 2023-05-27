@@ -7,6 +7,41 @@
     "text": "Remember the first time you gazed through the night sky filled with twinkling stars? Perhaps, you were a little child lying on your Dadi’s lap, listening to lovely stories as you gazed your way through the abyss. Or perhaps it was the time when you gazed outside the car window as your Papa drove swiftly on the road.\n Photo by Vincentiu Solomon on Unsplash\nRemember the first time you rode your bicycle? The feelings that you felt- feelings of excitement, alertness, nervousness, and especially the feeling when you felt you got it as you peddled your way through the road shouting Yoohooooo!!\n Photo by Flo Karr on Unsplash\nThere is something magical about our first times. First time doing or experiencing something.\nThis is my first time blogging! Amongst the plethora of feelings that I am feeling right now, are nervousness and excitement. Nervous because I do not know what to write and I do not know how this would all turn up in the end. Excited because I think this can be the start of something great!\nI opened this draft, had a sip of tea, placed my hands on the keyboard, and thought about what to write. Then all of this sort of came naturally to me. Lucky me!\nI guess Khaled Hosseini was right when he said that he would sit at his writing desk and wish for something magical to happen!\nThe first time I realized that I had a knack for writing(or maybe I don’t) was when I was in high school, in 10th grade. There was this English test that had a letter-writing section, and if I remember correctly the theme was something around “Write a letter to the MLA about helping orphans”. One thing I clearly remember about writing that letter, although it was for a test, was that I captured the pain and emotions of orphans and poured it out. For me, it felt real. I even thought of writing an actual letter later and sending it to my local MLA to help out the orphans in my locality. Anyways, after we handed over our test papers, I got feedback from my English teacher who was amazed by what I wrote. She was impressed by my writing style and the depth of my clarity. That sort of stayed with me. I never got a chance to actually write something meaningful for the next some years until I entered college. During those years, I used to volunteer at an NGO on Sundays as an education volunteer teaching kids from slum areas Math & English. During one of those times, I had written a post that captured the feelings of those kids when we the volunteers would come and meet them every Sunday. I wrote it and shared it with my co-volunteers. They all loved it! That is when I got a sense of self-awareness that there is a writer that is hidden inside me.\nI am starting this blog platform to allow myself to be that writer. I do not wish to get fame or anything, but I just want to write my heart out!\nOne of the things that scare me to hell is when I die and I am in my grave, my tombstone shouldn’t say “A writer buried with his words”.\nSo this is the beginning of my journey to do something that I love, to do something that makes me happy, to do something that makes me feel at home, to do something for the sake of its beauty, to do something for the sake of my passion- to write! And I invite you as well my friend, to start doing what your heart has been saying to you for all these years.\n\n“It is never too late to be what you might have been” - George Elliot\n\nSee ya around!"
   },
   {
+    "objectID": "posts/segmentation/segmentation.html",
+    "href": "posts/segmentation/segmentation.html",
+    "title": "Oh! Segmentation Tasks, Segmentation Tasks",
+    "section": "",
+    "text": "Street view image created using Stable Diffusion\n\n\nCan you recognize various objects from the above picture? Our eyes have the ability to see a complete image and recognize the distinguishing objects from it. We know there is a car on the left, a person ahead on the right, etc. Can we make computers do this?! Let us find out!"
+  },
+  {
+    "objectID": "posts/segmentation/segmentation.html#introduction",
+    "href": "posts/segmentation/segmentation.html#introduction",
+    "title": "Oh! Segmentation Tasks, Segmentation Tasks",
+    "section": "",
+    "text": "Street view image created using Stable Diffusion\n\n\nCan you recognize various objects from the above picture? Our eyes have the ability to see a complete image and recognize the distinguishing objects from it. We know there is a car on the left, a person ahead on the right, etc. Can we make computers do this?! Let us find out!"
+  },
+  {
+    "objectID": "posts/segmentation/segmentation.html#what-is-segmentation",
+    "href": "posts/segmentation/segmentation.html#what-is-segmentation",
+    "title": "Oh! Segmentation Tasks, Segmentation Tasks",
+    "section": "What Is Segmentation?",
+    "text": "What Is Segmentation?\nSegmentation refers to the process of dividing an image into multiple regions or segments, where each segment corresponds to a specific object or background.\nThe goal of a segmentation model in Deep Learning is to recognize the content of every individual pixel in an image thereby localizing objects in it.\nThis task is very important for self-driving cars, for example. If a self-driving car doesn’t know where a pedestrian is, then it doesn’t know how to avoid one!"
+  },
+  {
+    "objectID": "posts/segmentation/segmentation.html#building-a-segmentation-model",
+    "href": "posts/segmentation/segmentation.html#building-a-segmentation-model",
+    "title": "Oh! Segmentation Tasks, Segmentation Tasks",
+    "section": "Building A Segmentation Model",
+    "text": "Building A Segmentation Model\nWe will train a simple segmentation model using the fastai library.\n\n\n\nSource: https://giphy.com/gifs/starwars-star-wars-the-last-jedi-xT9Iguc1FSPtLmCw5W\n\n\n\nInstalling & Importing Relevant Libraries\nWe will install the fastai software and export all the vision libraries, since this is computer vision task.\n\n!pip install -Uqqq fastai\n\n\nfrom fastai.vision.all import *\n\n\n\nGetting Training Data\nWe will use a subset of the CamVid dataset from the paper “Semantic Object Classes in Video: A High-Definition Ground Truth Database” by Gabriel J. Brostow et al.\nThe following code gets the data for us!\n\npath = untar_data(URLs.CAMVID_TINY)\npath\n\n\n\n\n\n\n    \n      \n      100.18% [2318336/2314212 00:00&lt;00:00]\n    \n    \n\n\nPath('/root/.fastai/data/camvid_tiny')\n\n\nNow that we got the data, before using it for training our model, we we will have to specify fastai what kind of data we have, how it is structured, and for what task are we going to use it.\nThe following code does this.\n\ndls = SegmentationDataLoaders.from_label_func(path, bs = 8, fnames = get_image_files(path/'images'),\n                                             label_func = lambda o: path/'labels'/f'{o.stem}_P{o.suffix}',\n                                             codes = np.loadtxt(path/'codes.txt', dtype = str))\n\nLet us have a look at our data!\n\ndls.show_batch()\n\n\n\n\nThese are the 8 images for which we will train a model that can recognize its objects.\n\n\nUsing A Learner & Fine-tuning\nWe will use a unet learner and resenet34 architecture, a pre-trained model to fine-tune it for our task of segmentation.\n\nlearner = unet_learner(dls, resnet34)\nlearner.fine_tune(10)\n\n/usr/local/lib/python3.10/dist-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.\n  warnings.warn(\n/usr/local/lib/python3.10/dist-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet34_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet34_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\nDownloading: \"https://download.pytorch.org/models/resnet34-b627a593.pth\" to /root/.cache/torch/hub/checkpoints/resnet34-b627a593.pth\n100%|██████████| 83.3M/83.3M [00:00&lt;00:00, 298MB/s]\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\ntime\n\n\n\n\n0\n2.925367\n1.908659\n00:11\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\ntime\n\n\n\n\n0\n1.629299\n1.505528\n00:01\n\n\n1\n1.446579\n1.181775\n00:01\n\n\n2\n1.380383\n1.429530\n00:01\n\n\n3\n1.333090\n1.063483\n00:01\n\n\n4\n1.237765\n1.000342\n00:01\n\n\n5\n1.134848\n0.884875\n00:01\n\n\n6\n1.037858\n0.903598\n00:01\n\n\n7\n0.948801\n0.812336\n00:01\n\n\n8\n0.874415\n0.829520\n00:01\n\n\n9\n0.816568\n0.826488\n00:01\n\n\n\n\n\nThe training is done! It trained for about 15-20 sec. \nLet us see the results!\n\nlearner.show_results(figsize = (7, 8))\n\n\n\n\n\n\n\n\n\n\n\nVoila! On the left are the original images, and on the right are the ones that were segmented by our model. We can clearly see that it did a pretty good job in recognizing the pixels! For some, it got a few things wrong, but for most of them it got right!\nTo summarize, computers now can identify objects in an image, that too pretty well!"
+  },
+  {
+    "objectID": "posts/segmentation/segmentation.html#a-poem",
+    "href": "posts/segmentation/segmentation.html#a-poem",
+    "title": "Oh! Segmentation Tasks, Segmentation Tasks",
+    "section": "A Poem",
+    "text": "A Poem\nHere is a poem generated by ChatGPT on Segmentation.\n\nOh, segmentation task, segmentation task, Dividing images is its awesome task. To split an image into regions fine, And label each one, that is the line.\nSegmentation finds objects in a snap, And separates them from the background’s trap. In autonomous cars it plays a role, To avoid obstacles and reach the goal.\nIn medical images it helps a lot, To pinpoint where the issues are wrought. Convolutional neural networks take charge, And extract features like a boss, it’s large!\nThey label each pixel with a keen eye, And categorize them, oh so sly. Object recognition, it can aid, And much more, the list won’t fade.\nSegmentation task, oh how grand, In computer vision, it’s in high demand! Precise and accurate, it must be, So many applications, it sets us free!"
+  },
+  {
     "objectID": "posts/continents_classifier/continents_classifier.html",
     "href": "posts/continents_classifier/continents_classifier.html",
     "title": "Teaching AI Some Geography",
@@ -49,6 +84,55 @@
     "text": "Test The Model\nOur model is ready to be tested!\nLet us input the images we stored at the beginning and see its results.\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('africa.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[0]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: africa.\nProbability: 0.9926\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('antarctica.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[1]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: antarctica.\nProbability: 0.9998\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('asia.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[2]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: asia.\nProbability: 1.0000\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('australia.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[3]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: australia.\nProbability: 0.9995\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('europe.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[4]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: europe.\nProbability: 0.9992\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('north_america.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[5]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: north america.\nProbability: 0.9999\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('south_america.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[6]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: south america.\nProbability: 0.9978\n\n\nLooks pretty impressive isn’t it?!\nIf you have any ideas of your own feel free to try them out."
   },
   {
+    "objectID": "posts/linux_subsystem/index.html",
+    "href": "posts/linux_subsystem/index.html",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "",
+    "text": "One of the many first steps when venturing into doing Data Science is to have access to a Unix/Linux/Ubuntu OS.\nBut having a Windows OS and wanting to setup and run this hardcore geeky OS might be challenging.\nIn this blog, I will show a very quick and a simple way of setting up a Linux Subsystem in your Windows OS that I learned from Jeremy Howard! If you wish to follow along, you will have a complete full fledge Linux OS running in your Windows in the next 3-5 minutes. No complicated hacking stuff, no dual booting, no splitting of your computer into two halves using a light beam, none of that stuff. And if you are wondering if you will lose all the Windows features, don’t worry, you won’t.\nLet us get started!\n\n\n\nSource: https://giphy.com/gifs/wikitude-augmented-reality-penguin-linux-4Zgy9QqzWU8C3ugvCa"
+  },
+  {
+    "objectID": "posts/linux_subsystem/index.html#introduction",
+    "href": "posts/linux_subsystem/index.html#introduction",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "",
+    "text": "One of the many first steps when venturing into doing Data Science is to have access to a Unix/Linux/Ubuntu OS.\nBut having a Windows OS and wanting to setup and run this hardcore geeky OS might be challenging.\nIn this blog, I will show a very quick and a simple way of setting up a Linux Subsystem in your Windows OS that I learned from Jeremy Howard! If you wish to follow along, you will have a complete full fledge Linux OS running in your Windows in the next 3-5 minutes. No complicated hacking stuff, no dual booting, no splitting of your computer into two halves using a light beam, none of that stuff. And if you are wondering if you will lose all the Windows features, don’t worry, you won’t.\nLet us get started!\n\n\n\nSource: https://giphy.com/gifs/wikitude-augmented-reality-penguin-linux-4Zgy9QqzWU8C3ugvCa"
+  },
+  {
+    "objectID": "posts/linux_subsystem/index.html#step-0-getting-a-terminal",
+    "href": "posts/linux_subsystem/index.html#step-0-getting-a-terminal",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "Step 0: Getting A Terminal",
+    "text": "Step 0: Getting A Terminal\nWe will need a terminal handy right after we are done setting up Linux! There are many options to choose from. Let us download and install the Windows Terminal from the Microsoft Store before proceeding.\n\nPress the “⊞” key and type “store”.\n\n\n\nMicrosoft Store search\n\n\nOpen the Microsoft Store and search for “windows terminal”.\n\n\n\nDownload & install Windows Terminal\n\n\nDownload, and install it. We will use this soon!"
+  },
+  {
+    "objectID": "posts/linux_subsystem/index.html#step-1-getting-the-linux-subsystem",
+    "href": "posts/linux_subsystem/index.html#step-1-getting-the-linux-subsystem",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "Step 1: Getting the Linux Subsystem",
+    "text": "Step 1: Getting the Linux Subsystem\nWe will be setting up our subsystem from the Windows Powershell application.\n\nPress the “⊞” key button and search for “powershell”.\n\n\n\nPowershell search\n\n\nClick on Run as Administrator. It will prompt to verify. Click Yes.\nOnce you are inside the Windows Powershell, type the wsl --install command and press “⏎”.\n\n\n\nwsl-command\n\n\nThis will download and install 2 things, the Windows Subsystem for Linux and Ubuntu as shown below. To take effect we need to reboot our system.\nAfter the installation is done, close all the files and applications, and restart the computer."
+  },
+  {
+    "objectID": "posts/linux_subsystem/index.html#step-2-hello-linux",
+    "href": "posts/linux_subsystem/index.html#step-2-hello-linux",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "Step 2: Hello, Linux",
+    "text": "Step 2: Hello, Linux\nUpon restarting your computer a powershell window will pop up automatically, welcoming you and launching the Linux Subsystem. Once it is launched, it will ask to set up a username and a password. This is like a new computer that is running!\n\nPut a username and a password and you are done!\n\n\n\nAll set\n\n\n\nWhat you have now is a full fledged Linux Subsystem running in your Windows."
+  },
+  {
+    "objectID": "posts/linux_subsystem/index.html#step-3-accessing-linux",
+    "href": "posts/linux_subsystem/index.html#step-3-accessing-linux",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "Step 3: Accessing Linux",
+    "text": "Step 3: Accessing Linux\nRemember that Windows Terminal we kept ready at the beginning?! We will be using that to acsess our Linux CLI.\n\nOpen the Windows Terminal. By default, the Windows Powershell will run.\n\n\n\nPowershell as default\n\n\nThere will be a little arrown pointing as shown. Click it, and will show the list of options we can select from. To get Linux, we will have to select manually from this list. Instead, let us setup Linux as the default profile whenever we open our Windows Terminal. To do that and go to Settings.\n\n\n\nSettings\n\n\nMake Linux or Ubuntu as the default one.\n\n\n\nmaking Linux/Ubuntu as default\n\n\n\nNext time you open the Windows Terminal, it will welcome you with Linux/Ubuntu.\n\n\n\n\n\n\nLinux\n\n\n\n\n\n\n\nUbuntu"
+  },
+  {
+    "objectID": "posts/linux_subsystem/index.html#explore",
+    "href": "posts/linux_subsystem/index.html#explore",
+    "title": "Running A Linux Subsystem In Windows",
+    "section": "Explore",
+    "text": "Explore\nYou are all set to dwell into the Linux metaverse! If you are new to Linux, check out some tutorials, like this one to learn about it."
+  },
+  {
     "objectID": "posts/on_blogging/index.html",
     "href": "posts/on_blogging/index.html",
     "title": "Overcome The Barriers Of Blogging",
@@ -84,6 +168,20 @@
     "text": "Resources\n\nQuarto\nLesson “0”: Practical Deep Learning for Coders (fast.ai) - YouTube\nMeta Learning: How To Learn Deep Learning And Thrive In The Digital World\nIntroduction to Quarto | Blogging, Knowledge Sharing, Writing a Book - YouTube\nHow to Blog to Advance Your Career and Learn Faster - YouTube\nfast.ai - Advice for Better Blog Posts\nWhy you (yes, you) should blog. The top advice I would give my younger… | by Rachel Thomas | Medium\nfast.ai - Making Peace with Personal Branding"
   },
   {
+    "objectID": "posts/themes_in_tb/index.html#introduction",
+    "href": "posts/themes_in_tb/index.html#introduction",
+    "title": "List Of Themes To Expect In The fast.ai Textbook",
+    "section": "Introduction",
+    "text": "Introduction\nThroughout the chapter 1 of the Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD textbook, Jeremy and Sylvain mention various themes that will be discussed in the rest of the book. I have tried to grasp these themes and curate a list that I can refer to as I read the next chapters. Along with the Table of Contents, I have found this list quite helpful and have decided to share that here."
+  },
+  {
+    "objectID": "posts/themes_in_tb/index.html#the-list",
+    "href": "posts/themes_in_tb/index.html#the-list",
+    "title": "List Of Themes To Expect In The fast.ai Textbook",
+    "section": "The List",
+    "text": "The List\nFollowing are the things we will explore and learn throughout the book:\n\nHow the 8 requirements of modelling the human cognitive processes proposed by Parallel Distributed Processing (PDP) match with today’s neural network\nHow to build Rosenblatt’s machine\nAll of the code behind the fast.ai software\nMuch of PyTorch\nSGD\nHow neural networks and SGD work together\nThe Universal Approximation Theorem\nApproaches to labelling our data\nCreating a recommendation system\nFeedback Loops\nHow to create a handwritten digit classifier\nThe methods to avoid overfitting\nCNNs\nVarious architectures of fast.ai\nHow to create our own architectures\nResNet\nVarious metrics provided by fast.ai\nTricks to adapt a pre-trained model for a new dataset\nOther parameters to use with fine_tune()\nIssue and challenge of fully understanding, how a model behaves when encountered with unseen data\nSegmentation\nHow fine_tune works\nBuilding a language translation model to translate French and English\nCreate our own image dataset\nHow to use DL models in practice\nIdentification & fixing of errors\nCreating a real working web-app\nHow to avoid our models causing unexpected harm to our organization and society\nFoundations of how Deep Learning works"
+  },
+  {
     "objectID": "posts/frolicking_with_ai_generated_art/index.html",
     "href": "posts/frolicking_with_ai_generated_art/index.html",
     "title": "Frolicking With AI Generated Art",
@@ -112,6 +210,34 @@
     "text": "A Minor Epiphany\nI might be stepping on a slightly contreversial theme here, but on a bit of a different philosophical tangent, I had a minor epiphany that I want to share.\nAs I was struggling to articulate descriptions of art I wanted see, it crossed my mind that although we are moving towards this amazing world of possibilities where AI can do brilliantly magical stuff, but we as humans are also losing parts of ourselves which were innate to our cognitive abilities. We are in a sense delegating our cognitive tools to AI and dumbing ourselves down. I mean what will be left of us when every possible capability of our minds is transfered to AI. There were times, when we would smirk at the concept of doing mental arithmetics thinking that our mobile phones can do it for us, which they can for sure, very accurately. But we are losing our mental abilities to machines to a point that we can not even use it the way we want.\nTo end on a lighter note, here are a few art to cheer you up!\n\n\nfox walking down the street to a bar on a rainy night holding an umbrella"
   },
   {
+    "objectID": "posts/colored_cups/index.html#introduction",
+    "href": "posts/colored_cups/index.html#introduction",
+    "title": "Colored Cups",
+    "section": "Introduction",
+    "text": "Introduction\nI have had my share in teaching high school students a few years ago and one of the challenges that I faced back then was of getting a real time feedback of my student’s learning, as I was teaching in the class. Since I could not (and can not now as well) read their minds to know if they are following well along, I had to rely on them. They had to let me know if they are following along well. That brings another challenge! A student first must be self aware of his/her learning. In order to enable this, the students must be made owners of their learning."
+  },
+  {
+    "objectID": "posts/colored_cups/index.html#colored-cups",
+    "href": "posts/colored_cups/index.html#colored-cups",
+    "title": "Colored Cups",
+    "section": "Colored Cups",
+    "text": "Colored Cups\nColored Cups introduced by Dylan Wiliam in his book Embedded Formative Assessment (2011), is an effective technique that can be used in a classroom that attempts to:\n\nGet real-time feedback of student’s learning for teachers.\nPromotes self-regulated learning for students."
+  },
+  {
+    "objectID": "posts/colored_cups/index.html#working",
+    "href": "posts/colored_cups/index.html#working",
+    "title": "Colored Cups",
+    "section": "Working",
+    "text": "Working\nThe idea is simple!\nAll the students in the classrooms have 3 colored cups, a green cup, a yellow cup, and a red cup which are stacked together at the beginning of the class.\nEach of these colors reflect the various levels of understanding. Green means the student is understanding well, yellow means s/he is not quite sure what is going on, and red means the student has no idea of what is going on.\nAs the lesson is being taught, the students put a colored cup on their desks that corresponds to how they are following along, and the teacher can see the classroom to get a sense of how the students are following along.\nPrior to when a student puts a colored cup on the desk, s/he must self-assess his learning."
+  },
+  {
+    "objectID": "posts/colored_cups/index.html#adaptations-in-the-fast.ai-course",
+    "href": "posts/colored_cups/index.html#adaptations-in-the-fast.ai-course",
+    "title": "Colored Cups",
+    "section": "Adaptations In The fast.ai Course",
+    "text": "Adaptations In The fast.ai Course\nI first got to know about this in Practical Deep Learning for Coders course. In the course, a virtual setup was made and the teacher, Jeremy could see it from his end in the teacher version."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -123,6 +249,6 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Overcome The Barriers Of Blogging\n\n\n\n\n\n\n\nexperiences\n\n\ntips\n\n\n\n\nSharing some honest experiences and tips on blogging\n\n\n\n\n\n\nMay 27, 2023\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nTeaching AI Some Geography\n\n\n\n\n\n\n\nfast.ai\n\n\nexperiments\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nFrolicking With AI Generated Art\n\n\n\n\n\n\n\nnews\n\n\ngeneral\n\n\nexplorations\n\n\n\n\nExploring DALL.E.2\n\n\n\n\n\n\nNov 12, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOur First Times\n\n\n\n\n\n\n\nwriting\n\n\n\n\nMy first blog\n\n\n\n\n\n\nNov 11, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\nNo matching items"
+    "text": "Overcome The Barriers Of Blogging\n\n\n\n\n\n\n\nexperiences\n\n\ntips\n\n\n\n\nSharing some honest experiences and tips on blogging\n\n\n\n\n\n\nMay 27, 2023\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOh! Segmentation Tasks, Segmentation Tasks\n\n\n\n\n\n\n\nfast.ai\n\n\nnotes\n\n\n\n\nCan computers detect objects in an image?\n\n\n\n\n\n\nDec 5, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nColored Cups\n\n\n\n\n\n\n\neducation\n\n\nfast.ai\n\n\n\n\nAn effective tool for every classroom\n\n\n\n\n\n\nNov 27, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nRunning A Linux Subsystem In Windows\n\n\n\n\n\n\n\nfast.ai\n\n\nnotes\n\n\ntutorial\n\n\n\n\nA quick guide\n\n\n\n\n\n\nNov 24, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nList Of Themes To Expect In The fast.ai Textbook\n\n\n\n\n\n\n\nfast.ai\n\n\nnotes\n\n\n\n\nA curation from Chapter 1\n\n\n\n\n\n\nNov 20, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nTeaching AI Some Geography\n\n\n\n\n\n\n\nfast.ai\n\n\nexperiments\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nFrolicking With AI Generated Art\n\n\n\n\n\n\n\nnews\n\n\ngeneral\n\n\nexplorations\n\n\n\n\nExploring DALL.E.2\n\n\n\n\n\n\nNov 12, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOur First Times\n\n\n\n\n\n\n\nwriting\n\n\n\n\nMy first blog\n\n\n\n\n\n\nNov 11, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\nNo matching items"
   }
 ]
