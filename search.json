@@ -1,19 +1,5 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "I am self learning Data Science, which encapsulates multiple fields. I am currently exploring Deep Learning, Machine learning, and AI. I wish to work on building cool AI systems someday.\nOn this blog I document my learning journey and explorations in Data Science."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "Teaching AI Some Geography\n\n\n\n\n\n\n\nfast.ai\n\n\nexperiments\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nFrolicking With AI Generated Art\n\n\n\n\n\n\n\nnews\n\n\ngeneral\n\n\nexplorations\n\n\n\n\nExploring DALL.E.2\n\n\n\n\n\n\nNov 12, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOur First Times\n\n\n\n\n\n\n\nwriting\n\n\n\n\nMy first blog\n\n\n\n\n\n\nNov 11, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\nNo matching items"
-  },
-  {
     "objectID": "posts/our_first_times/index.html",
     "href": "posts/our_first_times/index.html",
     "title": "Our First Times",
@@ -39,7 +25,7 @@
     "href": "posts/continents_classifier/continents_classifier.html#get-image-data",
     "title": "Teaching AI Some Geography",
     "section": "Get Image Data",
-    "text": "Get Image Data\nLet us go on and get our image data.\n\nsearches = ['africa', 'antarctica', 'asia', 'australia', 'europe', 'north america', 'south america']\npath = Path('which_continent_is_it')\nfrom time import sleep\n\nfor o in searches:\n    dest = (path/o)\n    dest.mkdir(exist_ok=True, parents=True)\n    download_images(dest, urls=search_images(f'{o} continent map'))\n    sleep(10)  # Pause between searches to avoid over-loading server\n    resize_images(path/o, max_size=400, dest=path/o)\n\nSearching for 'africa continent map'\nSearching for 'antarctica continent map'\n\n\n/usr/local/lib/python3.7/dist-packages/PIL/Image.py:1015: UserWarning: Couldn't allocate palette entry for transparency\n  warnings.warn(\"Couldn't allocate palette entry for transparency\")\n\n\nSearching for 'asia continent map'\nSearching for 'australia continent map'\n\n\n/usr/local/lib/python3.7/dist-packages/PIL/Image.py:960: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images\n  \"Palette images with Transparency expressed in bytes should be \"\n\n\nSearching for 'europe continent map'\nSearching for 'north america continent map'\nSearching for 'south america continent map'\n\n\n/usr/local/lib/python3.7/dist-packages/PIL/Image.py:1015: UserWarning: Couldn't allocate palette entry for transparency\n  warnings.warn(\"Couldn't allocate palette entry for transparency\")\n\n\nSometimes, we might get a few broken images. We can track and discard them as follows.\n\nfailed = verify_images(get_image_files(path))\nfailed.map(Path.unlink)\nlen(failed)\n\n7"
+    "text": "Get Image Data\nLet us go on and get our image data.\n\nsearches = ['africa', 'antarctica', 'asia', 'australia', 'europe', 'north america', 'south america']\npath = Path('which_continent_is_it')\nfrom time import sleep\n\nfor o in searches:\n    dest = (path/o)\n    dest.mkdir(exist_ok=True, parents=True)\n    download_images(dest, urls=search_images(f'{o} continent map'))\n    sleep(10)  # Pause between searches to avoid over-loading server\n    resize_images(path/o, max_size=400, dest=path/o)\n\nSearching for 'africa continent map'\nSearching for 'antarctica continent map'\nSearching for 'asia continent map'\nSearching for 'australia continent map'\nSearching for 'europe continent map'\nSearching for 'north america continent map'\nSearching for 'south america continent map'\n\n\n/usr/local/lib/python3.7/dist-packages/PIL/Image.py:1015: UserWarning: Couldn't allocate palette entry for transparency\n  warnings.warn(\"Couldn't allocate palette entry for transparency\")\n/usr/local/lib/python3.7/dist-packages/PIL/Image.py:960: UserWarning: Palette images with Transparency expressed in bytes should be converted to RGBA images\n  \"Palette images with Transparency expressed in bytes should be \"\n/usr/local/lib/python3.7/dist-packages/PIL/Image.py:1015: UserWarning: Couldn't allocate palette entry for transparency\n  warnings.warn(\"Couldn't allocate palette entry for transparency\")\n\n\nSometimes, we might get a few broken images. We can track and discard them as follows.\n\nfailed = verify_images(get_image_files(path))\nfailed.map(Path.unlink)\nlen(failed)\n\n7"
   },
   {
     "objectID": "posts/continents_classifier/continents_classifier.html#create-datablock",
@@ -53,7 +39,7 @@
     "href": "posts/continents_classifier/continents_classifier.html#create-the-learner",
     "title": "Teaching AI Some Geography",
     "section": "Create The Learner",
-    "text": "Create The Learner\nNow, we create the actual model that will learn from the image data we gave it.\n\nlearn = vision_learner(dls, resnet18, metrics=error_rate)\nlearn.fine_tune(3)\n\n/usr/local/lib/python3.7/dist-packages/torchvision/models/_utils.py:209: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.\n  f\"The parameter '{pretrained_param}' is deprecated since 0.13 and will be removed in 0.15, \"\n/usr/local/lib/python3.7/dist-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      2.544921\n      1.500386\n      0.538462\n      00:44\n    \n  \n\n\n\n\n\n\n\n\n\n  \n    \n      epoch\n      train_loss\n      valid_loss\n      error_rate\n      time\n    \n  \n  \n    \n      0\n      1.187040\n      0.556937\n      0.179487\n      01:04\n    \n    \n      1\n      0.718358\n      0.290570\n      0.089744\n      01:04\n    \n    \n      2\n      0.497790\n      0.240653\n      0.076923\n      01:02"
+    "text": "Create The Learner\nNow, we create the actual model that will learn from the image data we gave it.\n\nlearn = vision_learner(dls, resnet18, metrics=error_rate)\nlearn.fine_tune(3)\n\n/usr/local/lib/python3.7/dist-packages/torchvision/models/_utils.py:209: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.\n  f\"The parameter '{pretrained_param}' is deprecated since 0.13 and will be removed in 0.15, \"\n/usr/local/lib/python3.7/dist-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=ResNet18_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet18_Weights.DEFAULT` to get the most up-to-date weights.\n  warnings.warn(msg)\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\nerror_rate\ntime\n\n\n\n\n0\n2.544921\n1.500386\n0.538462\n00:44\n\n\n\n\n\n\n\n\n\n\n\n\nepoch\ntrain_loss\nvalid_loss\nerror_rate\ntime\n\n\n\n\n0\n1.187040\n0.556937\n0.179487\n01:04\n\n\n1\n0.718358\n0.290570\n0.089744\n01:04\n\n\n2\n0.497790\n0.240653\n0.076923\n01:02"
   },
   {
     "objectID": "posts/continents_classifier/continents_classifier.html#test-the-model",
@@ -61,6 +47,41 @@
     "title": "Teaching AI Some Geography",
     "section": "Test The Model",
     "text": "Test The Model\nOur model is ready to be tested!\nLet us input the images we stored at the beginning and see its results.\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('africa.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[0]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: africa.\nProbability: 0.9926\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('antarctica.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[1]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: antarctica.\nProbability: 0.9998\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('asia.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[2]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: asia.\nProbability: 1.0000\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('australia.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[3]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: australia.\nProbability: 0.9995\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('europe.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[4]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: europe.\nProbability: 0.9992\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('north_america.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[5]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: north america.\nProbability: 0.9999\n\n\n\nwhich_continent_is_it,_,probs = learn.predict(PILImage.create('south_america.jpg'))\nprint(f\"This is: {which_continent_is_it}.\")\nprint(f\"Probability: {probs[6]:.4f}\")\n\n\n\n\n\n\n\n\nThis is: south america.\nProbability: 0.9978\n\n\nLooks pretty impressive isn’t it?!\nIf you have any ideas of your own feel free to try them out."
+  },
+  {
+    "objectID": "posts/on_blogging/index.html",
+    "href": "posts/on_blogging/index.html",
+    "title": "Overcome The Barriers Of Blogging",
+    "section": "",
+    "text": "It has been around 6 months since my last blog post.\nI was very excited when I started this blog. I was inspired by two posts, this and this. I thought of a cool name theaeonwanderer, checked out the Quarto guide, and went on to set up my blog. It felt really amazing. I had this personal web space of mine, that I only imagined! I had a platform for myself, a place where I can share stuff.\nI wrote two posts around the fast.ai materials I was learning back then when I started. Shared on the forums, got feedbacks, it was great! In the meantime a lot had happened with my learning journey but one of the things that created a friction for me when it came to blogging was my psychological and emotional barriers. I was thinking(and feeling) too much. There were folks, who were writing highly technical stuff talking about papers and so on! And there I was trying to understand what fine-tuning is, struggling to deploy my model in Lesson 2, and barely grasping the concepts taught in the lessons. I said to myself, that I will focus just on learning and one day, when I am over it, I will start blogging about these higher level stuff. Boy was I so wrong!\nI was thinking who the hell would benefit from this. It seemed all uncool and hence I wasn’t embracing it(quite the opposite of the fast.ai slogan eh?!).\nI remember Jeremy saying the following in Lesson 0:\nAs an irony, this exact blog post is that! I wish I knew back then what I am about to cover in this blog. It took me 6 months to get over my psychological and emotional barriers! A few traces still exists but I will overcome them soon."
+  },
+  {
+    "objectID": "posts/on_blogging/index.html#rome-wasnt-built-in-a-day",
+    "href": "posts/on_blogging/index.html#rome-wasnt-built-in-a-day",
+    "title": "Overcome The Barriers Of Blogging",
+    "section": "Rome Wasn’t Built In A Day",
+    "text": "Rome Wasn’t Built In A Day\nOne of the important pieces of advice I was given by my Professor when I was beginning to learn coding was to complete 200 hours of coding and then think about the intermediate or advanced stuff. It is only after you have done the 200 hours of coding, you will get out of that beginner layman/noob phase. Now, would it be wise to judge yourself while you are at the 2nd hour of coding? No not at all!\nThe same goes with any learning venture. The same goes for blogging. There is always an initial phase where we are all noobs. We are horrible at it! You can not stop then. Instead you must allow yourself to just go through the process. Embrace the falls, embrace the weaknesses, embrace the shitty blog posts! Let a few months pass, let a year pass and you will be better at it!\nAt the start of your blogging journey you must allow yourself to write messy posts. It is only after you have written a certain amount of posts, you will learn to improve in your style of writing as well as the content!\nYouTubers when starting their journeys are often told that their first 50-100 videos will suck! They stick with it! Go and look at the earlier videos of PewDiePie or any other successful YouTuber. Even your favourite bloggers, started from way down. What we see today, is a result of the work they put in consistently. That is how learning happens. We are humans after all!\nRemember the journey of Deep Learning?! Back in the 1950s, we started with what, a simple model of an artificial neuron?! And today we have Chat-GPT4 and Stable Diffusion."
+  },
+  {
+    "objectID": "posts/on_blogging/index.html#what-to-blog-about",
+    "href": "posts/on_blogging/index.html#what-to-blog-about",
+    "title": "Overcome The Barriers Of Blogging",
+    "section": "What To Blog About?",
+    "text": "What To Blog About?\nThere is one simple idea, that I am going to apply myself and would encourage you to apply as well.\nRight now, you are learning Deep Learning right?! How are you doing that? Probably through the Practical Deep Learning for Coders course. What does it have? It has the following:\n\nLecture videos\nTextbook chapters\nNBs\nResources\n\nYou immerse yourself in the learning process. You watch the lecture, read the chapter, experiment with code, all that wonderful stuff! Once you have learned something, from the lecture, or the chapter, or through experimenting, and even if that learning is as small as concept or as big as building an NLP model, You teach it! Consider it your job! You have to teach it. It has numerous benefits for you as well for others! For you, among other benefits, it helps you solidify what you have learned and clears the gaps in your understanding. For others who are a few steps behind you on the learning journey, it might help them.\nThe idea is the following:\n\nUse blogging as a medium to enhance your learning, helping yourself and others by teaching or explaining it!\n\nDid you learn about validation set and test set? Teach it! Did you build an image classifier? Show us how you did it! Did you understand the code behind that image classifier you built? Link the previous blog and explain the code! Did you feel stuck in the middle of your lesson and got yourself out of it? Share that experience.\nWhenever you learn anything new, just explain it!\nFor other benefits, refer to the links I shared at the beginning of this blog!"
+  },
+  {
+    "objectID": "posts/on_blogging/index.html#blogs-that-inspire-me",
+    "href": "posts/on_blogging/index.html#blogs-that-inspire-me",
+    "title": "Overcome The Barriers Of Blogging",
+    "section": "Blogs That Inspire Me",
+    "text": "Blogs That Inspire Me\nFinally, I am going to leave you with some of the blogs that have inspired and encouraged me and I hope that they inspire and encourage you as well.\n\nForBo7 // Salman Naqvi - Welcome to the world of ForBo7\nAman Arora\nKurian Benoy\nWasim Lorgat\nAbout Tanishq - Tanishq Mathew Abraham\nHamel’s Blog\nFinally, our beloved fast.ai - fast.ai—Making neural nets uncool again"
+  },
+  {
+    "objectID": "posts/on_blogging/index.html#resources",
+    "href": "posts/on_blogging/index.html#resources",
+    "title": "Overcome The Barriers Of Blogging",
+    "section": "Resources",
+    "text": "Resources\n\nQuarto\nLesson “0”: Practical Deep Learning for Coders (fast.ai) - YouTube\nMeta Learning: How To Learn Deep Learning And Thrive In The Digital World\nIntroduction to Quarto | Blogging, Knowledge Sharing, Writing a Book - YouTube\nHow to Blog to Advance Your Career and Learn Faster - YouTube"
   },
   {
     "objectID": "posts/frolicking_with_ai_generated_art/index.html",
@@ -89,5 +110,19 @@
     "title": "Frolicking With AI Generated Art",
     "section": "A Minor Epiphany",
     "text": "A Minor Epiphany\nI might be stepping on a slightly contreversial theme here, but on a bit of a different philosophical tangent, I had a minor epiphany that I want to share.\nAs I was struggling to articulate descriptions of art I wanted see, it crossed my mind that although we are moving towards this amazing world of possibilities where AI can do brilliantly magical stuff, but we as humans are also losing parts of ourselves which were innate to our cognitive abilities. We are in a sense delegating our cognitive tools to AI and dumbing ourselves down. I mean what will be left of us when every possible capability of our minds is transfered to AI. There were times, when we would smirk at the concept of doing mental arithmetics thinking that our mobile phones can do it for us, which they can for sure, very accurately. But we are losing our mental abilities to machines to a point that we can not even use it the way we want.\nTo end on a lighter note, here are a few art to cheer you up!\n\n\nfox walking down the street to a bar on a rainy night holding an umbrella"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "I am self learning Data Science, which encapsulates multiple fields. I am currently exploring Deep Learning, Machine learning, and AI. I wish to work on building cool AI systems someday.\nOn this blog I document my learning journey and explorations in Data Science."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "Overcome The Barriers Of Blogging\n\n\n\n\n\n\n\nexperiences\n\n\ntips\n\n\n\n\nSharing some honest experiences and tips on blogging\n\n\n\n\n\n\nMay 27, 2023\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nTeaching AI Some Geography\n\n\n\n\n\n\n\nfast.ai\n\n\nexperiments\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nFrolicking With AI Generated Art\n\n\n\n\n\n\n\nnews\n\n\ngeneral\n\n\nexplorations\n\n\n\n\nExploring DALL.E.2\n\n\n\n\n\n\nNov 12, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOur First Times\n\n\n\n\n\n\n\nwriting\n\n\n\n\nMy first blog\n\n\n\n\n\n\nNov 11, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\nNo matching items"
   }
 ]
