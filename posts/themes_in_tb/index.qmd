@@ -1,0 +1,51 @@
+---
+title: "List Of Themes To Expect In The fast.ai Textbook"
+description: A curation from Chapter 1
+author: "Abdullah Zeeshan"
+date: "2022/11/20"
+date-modified: "2023/05/28"
+categories: [fast.ai, notes]
+toc: true
+fig-align: center
+fig-cap-location: bottom
+---
+
+![](list.jpg)
+
+## Introduction
+
+Throughout the chapter 1 of the *Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD* textbook, Jeremy and Sylvain mention various themes that will be discussed in the rest of the book. I have tried to grasp these themes and curate a list that I can refer to as I read the next chapters. Along with the Table of Contents, I have found this list quite helpful and have decided to share that here.  
+
+## The List
+
+Following are the things we will explore and learn throughout the book:
+
+1. How the 8 requirements of modelling the human cognitive processes proposed by *Parallel Distributed Processing* (PDP) match with today's neural network
+2. How to build Rosenblatt's machine
+3. All of the code behind the fast.ai software
+4. Much of PyTorch
+5. SGD
+6. How neural networks and SGD work together
+7. The *Universal Approximation Theorem*
+8. Approaches to labelling our data
+9. Creating a recommendation system
+10. Feedback Loops
+11. How to create a handwritten digit classifier
+12. The methods to avoid overfitting
+13. CNNs
+14. Various architectures of fast.ai
+15. How to create our own architectures
+16. ResNet
+17. Various metrics provided by fast.ai
+18. Tricks to adapt a pre-trained model for a new dataset
+19. Other parameters to use with `fine_tune()`
+20. Issue and challenge of fully understanding, how a model behaves when encountered with unseen data
+21. Segmentation
+22. How `fine_tune` works
+23. Building a language translation model to translate French and English
+24. Create our own image dataset
+25. How to use DL models in practice
+26. Identification & fixing of errors
+27. Creating a real working web-app
+28. How to avoid our models causing unexpected harm to our organization and society
+29. Foundations of how Deep Learning works
