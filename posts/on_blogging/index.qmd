@@ -1,0 +1,79 @@
+---
+title: "Overcome The Barriers Of Blogging"
+author: "Abdullah Zeeshan"
+date: "2023-05-27"
+categories: [experiences, tips]
+description: Sharing some honest experiences and tips on blogging
+---
+![](happy_blogging.jpg)
+
+**It has been around 6 months since my last blog post.**
+
+I was very excited when I started this blog. I was inspired by two posts, this and this. I thought of a cool name *theaeonwanderer*, checked out the Quarto guide, and went on to set up my blog. It felt really amazing. I had this personal web space of mine, that I only imagined! I had a platform for myself, a place where I can share stuff.
+
+I wrote two posts around the fast.ai materials I was learning back then when I started. Shared on the forums, got feedbacks, it was great! In the meantime a lot had happened with my learning journey but one of the things that created a friction for me when it came to blogging was my psychological and emotional barriers. I was thinking(and feeling) too much. There were folks, who were writing highly technical stuff talking about papers and so on! And there I was trying to understand what fine-tuning is, struggling to deploy my model in Lesson 2, and barely grasping the concepts taught in the lessons. I said to myself, that I will focus just on learning and one day, when I am over it, I will start blogging about these higher level stuff. Boy was I so wrong!
+
+I was thinking who the hell would benefit from this. It seemed all *uncool* and hence I wasn't embracing it(quite the opposite of the fast.ai slogan eh?!).  
+
+I remember Jeremy saying the following in Lesson 0:
+
+> No one will be in a better position than you to write about what you would have wanted to know 6 months ago.
+
+As an irony, this exact blog post is that! I wish I knew back then what I am about to cover in this blog. It took me 6 months to get over my psychological and emotional barriers! A few traces still exists but I will overcome them soon.
+
+## Rome Wasn't Built In A Day
+
+One of the important pieces of advice I was given by my Professor when I was beginning to learn coding was to complete 200 hours of coding and *then* think about the intermediate or advanced stuff. It is only *after* you have done the 200 hours of coding, you will get out of that beginner layman/noob phase. Now, would it be wise to judge yourself *while* you are at the 2nd hour of coding? No not at all!
+
+The same goes with any learning venture. The same goes for blogging. There is always an initial phase where we are all noobs. We are horrible at it! You can not stop then. Instead you must *allow* yourself to *just go through the process*. Embrace the falls, embrace the weaknesses, embrace the shitty blog posts! Let a few months pass, let a year pass and you will be better at it!
+
+At the start of your blogging journey you must allow yourself to write messy posts. It is only after you have written a certain amount of posts, you will learn to improve in your style of writing as well as the content!
+
+YouTubers when starting their journeys are often told that their first 50-100 videos will suck! They stick with it! Go and look at the earlier videos of PewDiePie or any other successful YouTuber. Even your favourite bloggers, started from way down. What we see today, is a result of the work they put in consistently. That is how learning happens. We are humans after all!
+
+Remember the journey of Deep Learning?! Back in the 1950s, we started with what, a simple model of an artificial neuron?! And today we have Chat-GPT4 and Stable Diffusion. 
+
+## What To Blog About?
+
+There is one simple idea, that I am going to apply myself and would encourage you to apply as well. 
+
+Right now, you are learning Deep Learning right?! How are you doing that? Probably through the Practical Deep Learning for Coders course. What does it have? It has the following:
+
+- Lecture videos
+- Textbook chapters
+- NBs
+- Resources
+
+You immerse yourself in the learning process. You watch the lecture, read the chapter, experiment with code, all that wonderful stuff! Once you have learned something, from the lecture, or the chapter, or through experimenting, and even if that learning is as small as concept or as big as building an NLP model, **You teach it!** Consider it your job! You have to teach it. It has numerous benefits for you as well for others! For you, among other benefits, it helps you solidify what you have learned and clears the gaps in your understanding. For others who are a few steps behind you on the learning journey, it might help them.
+
+The idea is the following:
+
+> Use blogging as a medium to enhance your learning, helping yourself and others by teaching or explaining it!
+
+Did you learn about validation set and test set? Teach it! Did you build an image classifier? Show us how you did it! Did you understand the code behind that image classifier you built? Link the previous blog and explain the code! Did you feel stuck in the middle of your lesson and got yourself out of it? Share that experience. 
+
+Whenever you **learn** *anything* **new**, just **explain** it! 
+
+For other benefits, refer to the links I shared at the beginning of this blog!
+
+## Blogs That Inspire Me
+
+Finally, I am going to leave you with some of the blogs that have inspired and encouraged me and I hope that they inspire and encourage you as well.
+
+- [ForBo7 // Salman Naqvi - Welcome to the world of ForBo7](https://forbo7.github.io/)
+- [Aman Arora](https://amaarora.github.io/about.html)
+- [Kurian Benoy](https://kurianbenoy.com/)
+- [Wasim Lorgat](https://wasimlorgat.com/)
+- [About Tanishq - Tanishq Mathew Abraham](https://www.tanishq.ai/)
+- [Hamel’s Blog](https://hamel.dev/)
+- Finally, our beloved [fast.ai - fast.ai—Making neural nets uncool again](https://fast.ai/)
+
+## Resources
+
+- [Quarto](https://quarto.org/)
+- [Lesson "0": Practical Deep Learning for Coders (fast.ai) - YouTube](https://www.youtube.com/watch?v=gGxe2mN3kAg&t=980s)
+- [Meta Learning: How To Learn Deep Learning And Thrive In The Digital World](https://rosmulski.gumroad.com/l/learn_machine_learning/blog)
+- [Introduction to Quarto | Blogging, Knowledge Sharing, Writing a Book - YouTube](https://www.youtube.com/watch?v=IqB-zVc5NgI)
+- [How to Blog to Advance Your Career and Learn Faster - YouTube](https://www.youtube.com/watch?v=1nMckFzGcd8)
+
+
