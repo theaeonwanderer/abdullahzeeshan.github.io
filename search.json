@@ -168,20 +168,6 @@
     "text": "Resources\n\nQuarto\nLesson “0”: Practical Deep Learning for Coders (fast.ai) - YouTube\nMeta Learning: How To Learn Deep Learning And Thrive In The Digital World\nIntroduction to Quarto | Blogging, Knowledge Sharing, Writing a Book - YouTube\nHow to Blog to Advance Your Career and Learn Faster - YouTube\nfast.ai - Advice for Better Blog Posts\nWhy you (yes, you) should blog. The top advice I would give my younger… | by Rachel Thomas | Medium\nfast.ai - Making Peace with Personal Branding"
   },
   {
-    "objectID": "posts/themes_in_tb/index.html#introduction",
-    "href": "posts/themes_in_tb/index.html#introduction",
-    "title": "List Of Themes To Expect In The fast.ai Textbook",
-    "section": "Introduction",
-    "text": "Introduction\nThroughout the chapter 1 of the Deep Learning for Coders with fastai and PyTorch: AI Applications Without a PhD textbook, Jeremy and Sylvain mention various themes that will be discussed in the rest of the book. I have tried to grasp these themes and curate a list that I can refer to as I read the next chapters. Along with the Table of Contents, I have found this list quite helpful and have decided to share that here."
-  },
-  {
-    "objectID": "posts/themes_in_tb/index.html#the-list",
-    "href": "posts/themes_in_tb/index.html#the-list",
-    "title": "List Of Themes To Expect In The fast.ai Textbook",
-    "section": "The List",
-    "text": "The List\nFollowing are the things we will explore and learn throughout the book:\n\nHow the 8 requirements of modelling the human cognitive processes proposed by Parallel Distributed Processing (PDP) match with today’s neural network\nHow to build Rosenblatt’s machine\nAll of the code behind the fast.ai software\nMuch of PyTorch\nSGD\nHow neural networks and SGD work together\nThe Universal Approximation Theorem\nApproaches to labelling our data\nCreating a recommendation system\nFeedback Loops\nHow to create a handwritten digit classifier\nThe methods to avoid overfitting\nCNNs\nVarious architectures of fast.ai\nHow to create our own architectures\nResNet\nVarious metrics provided by fast.ai\nTricks to adapt a pre-trained model for a new dataset\nOther parameters to use with fine_tune()\nIssue and challenge of fully understanding, how a model behaves when encountered with unseen data\nSegmentation\nHow fine_tune works\nBuilding a language translation model to translate French and English\nCreate our own image dataset\nHow to use DL models in practice\nIdentification & fixing of errors\nCreating a real working web-app\nHow to avoid our models causing unexpected harm to our organization and society\nFoundations of how Deep Learning works"
-  },
-  {
     "objectID": "posts/frolicking_with_ai_generated_art/index.html",
     "href": "posts/frolicking_with_ai_generated_art/index.html",
     "title": "Frolicking With AI Generated Art",
@@ -249,6 +235,6 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "Overcome The Barriers Of Blogging\n\n\n\n\n\n\n\nexperiences\n\n\ntips\n\n\n\n\nSharing some honest experiences and tips on blogging\n\n\n\n\n\n\nMay 27, 2023\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOh! Segmentation Tasks, Segmentation Tasks\n\n\n\n\n\n\n\nfast.ai\n\n\nnotes\n\n\n\n\nCan computers detect objects in an image?\n\n\n\n\n\n\nDec 5, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nColored Cups\n\n\n\n\n\n\n\neducation\n\n\nfast.ai\n\n\n\n\nAn effective tool for every classroom\n\n\n\n\n\n\nNov 27, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nRunning A Linux Subsystem In Windows\n\n\n\n\n\n\n\nfast.ai\n\n\nnotes\n\n\ntutorial\n\n\n\n\nA quick guide\n\n\n\n\n\n\nNov 24, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nList Of Themes To Expect In The fast.ai Textbook\n\n\n\n\n\n\n\nfast.ai\n\n\nnotes\n\n\n\n\nA curation from Chapter 1\n\n\n\n\n\n\nNov 20, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nTeaching AI Some Geography\n\n\n\n\n\n\n\nfast.ai\n\n\nexperiments\n\n\n\n\n\n\n\n\n\n\n\nNov 14, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nFrolicking With AI Generated Art\n\n\n\n\n\n\n\nnews\n\n\ngeneral\n\n\nexplorations\n\n\n\n\nExploring DALL.E.2\n\n\n\n\n\n\nNov 12, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOur First Times\n\n\n\n\n\n\n\nwriting\n\n\n\n\nMy first blog\n\n\n\n\n\n\nNov 11, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\nNo matching items"
+    "text": "Overcome The Barriers Of Blogging\n\n\n\n\n\n\n\nexperiences\n\n\ntips\n\n\n\n\nSharing some honest experiences and tips on blogging\n\n\n\n\n\n\nMay 27, 2023\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOh! Segmentation Tasks, Segmentation Tasks\n\n\n\n\n\n\n\ncomputer vision\n\n\n\n\nCan computers detect objects in an image?\n\n\n\n\n\n\nDec 5, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nColored Cups\n\n\n\n\n\n\n\neducation\n\n\nfast.ai\n\n\n\n\nAn effective tool for every classroom\n\n\n\n\n\n\nNov 27, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nRunning A Linux Subsystem In Windows\n\n\n\n\n\n\n\ntutorial\n\n\nlinux\n\n\n\n\nA quick guide\n\n\n\n\n\n\nNov 24, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nTeaching AI Some Geography\n\n\n\n\n\n\n\nfast.ai\n\n\nexperiments\n\n\n\n\nBuilding an image classifier\n\n\n\n\n\n\nNov 14, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nFrolicking With AI Generated Art\n\n\n\n\n\n\n\nnews\n\n\ngeneral\n\n\nexplorations\n\n\n\n\nExploring DALL.E.2\n\n\n\n\n\n\nNov 12, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\n  \n\n\n\n\nOur First Times\n\n\n\n\n\n\n\nwriting\n\n\n\n\nMy first blog\n\n\n\n\n\n\nNov 11, 2022\n\n\nAbdullah Zeeshan\n\n\n\n\n\n\nNo matching items"
   }
 ]

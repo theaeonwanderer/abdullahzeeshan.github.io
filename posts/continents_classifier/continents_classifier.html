@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.3.361">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Abdullah Zeeshan">
 <meta name="dcterms.date" content="2022-11-14">
+<meta name="description" content="Building an image classifier">
 
 <title>Abdullah Zeeshan - Teaching AI Some Geography</title>
 <style>
@@ -92,7 +93,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
@@ -124,6 +126,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/theaeonwanderer" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/theaeonwanderer" rel="" target=""><i class="bi bi-github" role="img">
 </i> 
  <span class="menu-text"></span></a>
@@ -140,7 +147,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
       <h1 class="title">Teaching AI Some Geography</h1>
-                                <div class="quarto-categories">
+                  <div>
+        <div class="description">
+          Building an image classifier
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">fast.ai</div>
                 <div class="quarto-category">experiments</div>
               </div>
@@ -216,7 +228,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="install-packages" class="level3">
 <h3 class="anchored" data-anchor-id="install-packages">Install Packages</h3>
 <p>We begin by installing <code>fastbook</code> and <code>duckduckgo_search</code>. The formers allows us to access the fast.ai library that will help us build our image classifier and the latter allows us to access DuckDuckGo search engine features to search, get, and download our images for training.</p>
-<div class="cell" data-execution_count="1">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install <span class="op">-</span>Uqq fastbook duckduckgo_search</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
@@ -233,13 +245,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="setup-a-system-for-getting-images" class="level3">
 <h3 class="anchored" data-anchor-id="setup-a-system-for-getting-images">Setup A System For Getting Images</h3>
 <p>Here, we create a handy little function that can search for a specific <code>term</code> on DuckDuckGo image searches and get its URLs</p>
-<div class="cell" data-execution_count="2">
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> search_images(term, max_images<span class="op">=</span><span class="dv">30</span>):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Searching for '</span><span class="sc">{</span>term<span class="sc">}</span><span class="ss">'"</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> L(ddg_images(term, max_results<span class="op">=</span>max_images)).itemgot(<span class="st">'image'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For example, if our <code>term</code> is <code>africa continent map</code>, the above function gets the first popped up URL of the image of <code>africa continent map</code> as shown below.</p>
-<div class="cell" data-outputid="70ae2455-76f3-4541-cf77-23a7bab25127" data-execution_count="3">
+<div class="cell" data-outputid="70ae2455-76f3-4541-cf77-23a7bab25127">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>urls <span class="op">=</span> search_images(<span class="st">'africa continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>urls[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -251,7 +263,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Once, we get the URLs of an image, let us setup a way through which we can actually <em>download</em> the URLs we obtained and <em>view</em> them. We will storing the downloaded files in <code>jpg</code> formats.</p>
 <p>The following snippets do that for us.</p>
-<div class="cell" data-outputid="33ca46bb-0f62-4e12-f40e-886df61fbb2d" data-execution_count="4">
+<div class="cell" data-outputid="33ca46bb-0f62-4e12-f40e-886df61fbb2d">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dest <span class="op">=</span> <span class="st">'africa.jpg'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>download_url(urls[<span class="dv">0</span>], dest, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -262,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>The Africa continent looks good. Let us have sneak peak on the remaining 6 continents just to make sure that DuckDuckGo is getting the right images for us.</p>
-<div class="cell" data-outputid="f324b262-2fff-4d5b-f30c-016ff8d8db61" data-execution_count="5">
+<div class="cell" data-outputid="f324b262-2fff-4d5b-f30c-016ff8d8db61">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>download_url(search_images(<span class="st">'antarctica continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>], <span class="st">'antarctica.jpg'</span>, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Image.<span class="bu">open</span>(<span class="st">'antarctica.jpg'</span>).to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -272,7 +284,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="continents_classifier_files/figure-html/cell-7-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="ea46cd0c-bc5c-4736-c3d8-c5fe8526ff69" data-execution_count="6">
+<div class="cell" data-outputid="ea46cd0c-bc5c-4736-c3d8-c5fe8526ff69">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>download_url(search_images(<span class="st">'asia continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>], <span class="st">'asia.jpg'</span>, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>Image.<span class="bu">open</span>(<span class="st">'asia.jpg'</span>).to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -282,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="continents_classifier_files/figure-html/cell-8-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="ec9b9c76-e591-46bb-8f5b-1c0689cf9a62" data-execution_count="7">
+<div class="cell" data-outputid="ec9b9c76-e591-46bb-8f5b-1c0689cf9a62">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>download_url(search_images(<span class="st">'australia continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>], <span class="st">'australia.jpg'</span>, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>Image.<span class="bu">open</span>(<span class="st">'australia.jpg'</span>).to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -292,7 +304,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="continents_classifier_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="45e6f05a-7d9e-4d71-e8d5-79791324b0f0" data-execution_count="8">
+<div class="cell" data-outputid="45e6f05a-7d9e-4d71-e8d5-79791324b0f0">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>download_url(search_images(<span class="st">'europe continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>], <span class="st">'europe.jpg'</span>, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>Image.<span class="bu">open</span>(<span class="st">'europe.jpg'</span>).to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -302,7 +314,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="continents_classifier_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="dec6bd8c-cf05-4538-ab20-1f18156367bd" data-execution_count="9">
+<div class="cell" data-outputid="dec6bd8c-cf05-4538-ab20-1f18156367bd">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>download_url(search_images(<span class="st">'north america continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>], <span class="st">'north_america.jpg'</span>, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>Image.<span class="bu">open</span>(<span class="st">'north_america.jpg'</span>).to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -312,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="continents_classifier_files/figure-html/cell-11-output-2.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-outputid="47b01e70-7553-4dd3-ca64-804abeef349d" data-execution_count="11">
+<div class="cell" data-outputid="47b01e70-7553-4dd3-ca64-804abeef349d">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>download_url(search_images(<span class="st">'south america continent map'</span>, max_images<span class="op">=</span><span class="dv">1</span>)[<span class="dv">0</span>], <span class="st">'south_america.jpg'</span>, show_progress<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>Image.<span class="bu">open</span>(<span class="st">'south_america.jpg'</span>).to_thumb(<span class="dv">256</span>,<span class="dv">256</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -330,7 +342,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="get-image-data" class="level2">
 <h2 class="anchored" data-anchor-id="get-image-data">Get Image Data</h2>
 <p>Let us go on and get our image data.</p>
-<div class="cell" data-outputid="daaae936-6903-452c-d057-12dc84265dd5" data-execution_count="12">
+<div class="cell" data-outputid="daaae936-6903-452c-d057-12dc84265dd5">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>searches <span class="op">=</span> [<span class="st">'africa'</span>, <span class="st">'antarctica'</span>, <span class="st">'asia'</span>, <span class="st">'australia'</span>, <span class="st">'europe'</span>, <span class="st">'north america'</span>, <span class="st">'south america'</span>]</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>path <span class="op">=</span> Path(<span class="st">'which_continent_is_it'</span>)</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> time <span class="im">import</span> sleep</span>
@@ -360,7 +372,7 @@ Searching for 'south america continent map'</code></pre>
 </div>
 </div>
 <p>Sometimes, we might get a few broken images. We can track and discard them as follows.</p>
-<div class="cell" data-outputid="bbc4b80e-ba00-49d1-caf8-8d04665951cd" data-execution_count="13">
+<div class="cell" data-outputid="bbc4b80e-ba00-49d1-caf8-8d04665951cd">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>failed <span class="op">=</span> verify_images(get_image_files(path))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>failed.<span class="bu">map</span>(Path.unlink)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(failed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -373,7 +385,7 @@ Searching for 'south america continent map'</code></pre>
 <section id="create-datablock" class="level2">
 <h2 class="anchored" data-anchor-id="create-datablock">Create <code>DataBlock</code></h2>
 <p>Next we create a <code>DataBlock</code> that helps us <em>put</em> our images into the model.</p>
-<div class="cell" data-outputid="c7462c57-9190-49b1-9415-deed95329da4" data-execution_count="14">
+<div class="cell" data-outputid="c7462c57-9190-49b1-9415-deed95329da4">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>dls <span class="op">=</span> DataBlock(</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    blocks<span class="op">=</span>(ImageBlock, CategoryBlock), </span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    get_items<span class="op">=</span>get_image_files, </span>
@@ -392,7 +404,7 @@ Searching for 'south america continent map'</code></pre>
 <section id="create-the-learner" class="level2">
 <h2 class="anchored" data-anchor-id="create-the-learner">Create The Learner</h2>
 <p>Now, we create the actual model that will learn from the image data we gave it.</p>
-<div class="cell" data-outputid="737eebfc-da99-4210-8a02-77963f6a64a6" data-execution_count="15">
+<div class="cell" data-outputid="737eebfc-da99-4210-8a02-77963f6a64a6">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>learn <span class="op">=</span> vision_learner(dls, resnet18, metrics<span class="op">=</span>error_rate)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>learn.fine_tune(<span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -502,7 +514,7 @@ Searching for 'south america continent map'</code></pre>
 <h2 class="anchored" data-anchor-id="test-the-model">Test The Model</h2>
 <p>Our model is ready to be tested!</p>
 <p>Let us input the images we stored at the beginning and see its results.</p>
-<div class="cell" data-outputid="c1821489-054a-4e36-ba0a-a6251f532594" data-execution_count="16">
+<div class="cell" data-outputid="c1821489-054a-4e36-ba0a-a6251f532594">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'africa.jpg'</span>))</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">0</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -532,7 +544,7 @@ Searching for 'south america continent map'</code></pre>
 Probability: 0.9926</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="b5466d2f-a52e-4292-8f93-c6b5abd194ac" data-execution_count="17">
+<div class="cell" data-outputid="b5466d2f-a52e-4292-8f93-c6b5abd194ac">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'antarctica.jpg'</span>))</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">1</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -562,7 +574,7 @@ Probability: 0.9926</code></pre>
 Probability: 0.9998</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="7eb5023e-325e-40d1-d8af-e5f1d75fdff8" data-execution_count="18">
+<div class="cell" data-outputid="7eb5023e-325e-40d1-d8af-e5f1d75fdff8">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'asia.jpg'</span>))</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">2</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -592,7 +604,7 @@ Probability: 0.9998</code></pre>
 Probability: 1.0000</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="c7783e79-4c07-4cbf-be9a-5d111b314109" data-execution_count="19">
+<div class="cell" data-outputid="c7783e79-4c07-4cbf-be9a-5d111b314109">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'australia.jpg'</span>))</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">3</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -622,7 +634,7 @@ Probability: 1.0000</code></pre>
 Probability: 0.9995</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="fd01625c-7b22-4901-a6e8-ec24217d1db3" data-execution_count="20">
+<div class="cell" data-outputid="fd01625c-7b22-4901-a6e8-ec24217d1db3">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'europe.jpg'</span>))</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">4</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -652,7 +664,7 @@ Probability: 0.9995</code></pre>
 Probability: 0.9992</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="1a10877d-ff58-4955-a84c-6beb9a744eab" data-execution_count="21">
+<div class="cell" data-outputid="1a10877d-ff58-4955-a84c-6beb9a744eab">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'north_america.jpg'</span>))</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">5</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -682,7 +694,7 @@ Probability: 0.9992</code></pre>
 Probability: 0.9999</code></pre>
 </div>
 </div>
-<div class="cell" data-outputid="c814b70d-ce4d-4b87-aee0-4b50328d7306" data-execution_count="22">
+<div class="cell" data-outputid="c814b70d-ce4d-4b87-aee0-4b50328d7306">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>which_continent_is_it,_,probs <span class="op">=</span> learn.predict(PILImage.create(<span class="st">'south_america.jpg'</span>))</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This is: </span><span class="sc">{</span>which_continent_is_it<span class="sc">}</span><span class="ss">."</span>)</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Probability: </span><span class="sc">{</span>probs[<span class="dv">6</span>]<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

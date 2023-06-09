@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Abdullah Zeeshan - Lesson 0</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../../">
+<link href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/00-introduction.html" rel="next">
+<link href="../../../../knowledge-stores/books/fastai-textbook/ch/index.html" rel="prev">
+<link href="../../../../images/about/profile_picture.png" rel="icon" type="image/png">
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="../../../../index.html">
+    <span class="navbar-title">Abdullah Zeeshan</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../notes.html" rel="" target="">
+ <span class="menu-text">Notes</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../../about.html" rel="" target="">
+ <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/theaeonwanderer" rel="" target=""><i class="bi bi-twitter" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/theaeonwanderer" rel="" target=""><i class="bi bi-github" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Knowledge Stores</li><li class="breadcrumb-item">Books</li><li class="breadcrumb-item"><a href="../../../../knowledge-stores/books/fastai-textbook/ch/index.html">Fastai Textbook</a></li><li class="breadcrumb-item"><a href="../../../../knowledge-stores/books/fastai-textbook/chapter-2/lesson0.html">Chapter 2</a></li><li class="breadcrumb-item"><a href="../../../../knowledge-stores/books/fastai-textbook/chapter-2/lesson0.html">Lesson 0</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">Knowledge Stores</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Books</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+ <span class="menu-text">Fastai Textbook</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth3 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/books/fastai-textbook/ch/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">List Of Themes To Expect In The fast.ai Textbook</span></a>
+  </div>
+</li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">Chapter 2</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth4 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/books/fastai-textbook/chapter-2/lesson0.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Lesson 0</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Courses</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Practical Deep Learning for Coders</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">V5(2022)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">Lesson 0</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/00-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/01-about.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About Lesson 0</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/02-student-outcomes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outcomes Of Students Who Completed The Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/03-two-types-of-learners.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Two Types Of Learners</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/04-textbook.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">The fast.ai Textbook</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/05-overlap-of-the-book-and-the-course.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Overlap Of The Textbook &amp; The Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/06-finish.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Finish The Damn Course!</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/07-do-a-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Do A Project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/08-simple-goal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Simple Goal</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/09-importance-of-a-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Importance Of A Project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/10-about-the-project.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">About The Project</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/11-tenacity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">On Being Tenacious</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/12-radek.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Radek &amp; His Inspiring Story</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/13-insights-from-meta-learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Some Insights From The “Meta-Learning” Book</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/14-share-your-work.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Share Your Work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/15-4-steps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4 Steps Of Doing A “Lesson”</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/15-5-nbs-vs-linux.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using Notebook Servers VS Doing Stuff Through Linux</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/16-how-not-to-do-fastai.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How Not To Do fast.ai</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/17-feedback.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Get Feedback Through Practicing</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/18-read-and-write-code.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Read &amp; Write Code Throughout The Course</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/19-twitter.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Twitter, Access The Deep Learning World Through It</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/20-blog.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Start Blogging</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/21-ml-vs-tc.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ML Coding Vs Traditional Coding</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/22-vs.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Importance Of A Good Validation Set</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/23-ml-code-is-hard.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ML Code Is Hard To Write</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/24-baseline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Baseline For Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/25-kaggle-as-projects.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kaggle Competitions As Projects</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/26-job.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">One Finding A Job</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/27-get-ready.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Get Ready For Part 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/28-closing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Closing Remarks</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">Lesson 1</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-1/xkcd_1425.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">On xkcd 1425</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">Talks</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+ <span class="menu-text">Kopi</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth3 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text">Jimli</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth4 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text">Lop</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth5 ">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false">
+ <span class="menu-text">Hjj</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth6 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../../../knowledge-stores/talks/kopi/jimli/lop/hjj/notes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Notes</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Lesson 0</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/gGxe2mN3kAg" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<hr>
+<section id="about" class="level2">
+<h2 class="anchored" data-anchor-id="about">About</h2>
+<p>This was an entirely optional presentation that was given in 2021 titled as Lesson 0.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="how_to_fastai.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 1: “How to fast.ai”</em></figcaption>
+</figure>
+</div>
+<p>This lesson is a perfect guide on “How To fast.ai?”</p>
+<p>It helps a learner in knowing:</p>
+<ol type="1">
+<li>How to get the most out of this course?</li>
+<li>How to make sure s/he finishes it?</li>
+<li>How to make sure it has been a productive learning experience?</li>
+</ol>
+<p>In an overall sense, this lesson gears a learner with the best approaches to this course which Jeremy heard from various students.</p>
+<p>Most often, some students, only after finishing the course, when they reach the end, realize what to do and what not to do and they begin again from the start. To avoid this does not happen, the tips shared in this lesson will be quite helpful.</p>
+<p>Apart from all this, the lesson depicts the actual mechanics of setting up two environments, Google Colab and AWS EC2, discussing preferences over one another. This is what we will be using while actually coding.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The coding environment is different in the 2022 version of the course. Hence, this setup may not be relevant for those takng the 2022 version.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="outcomes-of-students-who-completed-the-course" class="level2">
+<h2 class="anchored" data-anchor-id="outcomes-of-students-who-completed-the-course">Outcomes Of Students Who Completed The Course</h2>
+<p>Many stdents, as in hundreds and thousands of students after going through this course went on to:</p>
+<ol type="1">
+<li>Create successful startups.</li>
+<li>Write research papers with high impact factors.</li>
+<li>Create new products for their companies.</li>
+</ol>
+<p>This course is a well-proven course which won a lot of awards.</p>
+<hr>
+</section>
+<section id="two-types-of-learners" class="level2">
+<h2 class="anchored" data-anchor-id="two-types-of-learners">Two Types Of Learners</h2>
+<p>There will always be two types of students. One who will finish the course and the second who will not.</p>
+<p>The delightful success stories of students are only meant for the ones who actually completed the course.</p>
+<p>Decide for yourself if you want to finish the course or not. It does take a lot in finishing the course as will be explained ahead.</p>
+<hr>
+</section>
+<section id="the-fast.ai-textbook" class="level2">
+<h2 class="anchored" data-anchor-id="the-fast.ai-textbook">The fast.ai Textbook</h2>
+<p>There is an actual textbook written by Jeremy and Sylvain Gugger which can be followed along with the course.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="fastai_textbook_lesson_0.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 2: fast.ai textbook</em></figcaption>
+</figure>
+</div>
+<p>The textbook is available for purchase on Amazon and is also available for free on Github as a <a href="https://github.com/fastai/fastbook">fastbook</a> repo.</p>
+<p>It was written in Jupyter Notebooks and then a software was written to convert that into the textbook.</p>
+<p>People like the book.</p>
+<p>On a side note, Jeremy does not make any profit from the book, so he says don’t buy the book in order to thank him, but buy the book if <em>you</em>, the learner wants it, else one can read it for free if that works.</p>
+<p>The books looks really great on any format be it Kindle or Paperback, unlike most of the technical textbooks.</p>
+<hr>
+</section>
+<section id="the-course" class="level2">
+<h2 class="anchored" data-anchor-id="the-course">The Course</h2>
+<p>Part 1 of the course goes through the initial half of the textbook and Part 2 for the latter half of the book. Each lesson covers a chapter or so of the book.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This was back in the 2021 version of the course. I need to verify the overlap as of 2022.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="finish-the-damn-course" class="level2">
+<h2 class="anchored" data-anchor-id="finish-the-damn-course">Finish The Damn Course!</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="finish_it.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 3: Finish It</em></figcaption>
+</figure>
+</div>
+<p>Get it through your head to finish the course or finish half of the textbook.</p>
+<p>Most people who come in drift away after a few days or weeks and don’t finish it.</p>
+<p>Structure your time and create a practical schedule and stick to it. “What day are you going to watch the lesson?”, “What day are you going to do the assignments?”</p>
+<p>If the learner’s intention upfront is not to finish the course, that is fine. But, if someones joins the course to with an intention to finish it and be an effective deep learning practitioner, must finish it off!</p>
+<p>tell your friends/spouse that it is your goal so that you get that social pressure which can help you finish it off.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I told my brother, and he keeps asking me now and then, how it’s going! It helps me get back to it incase I drift away. Pick anything that works for you.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="do-a-project" class="level2">
+<h2 class="anchored" data-anchor-id="do-a-project">Do ‘A’ Project</h2>
+<p>Apart from finishing the course, finish <em>one</em> polished project.</p>
+<hr>
+</section>
+<section id="simple-goal" class="level2">
+<h2 class="anchored" data-anchor-id="simple-goal">Simple Goal</h2>
+<p>So to summarize, this is what a learner has gotta do:</p>
+<ol type="1">
+<li><strong>Finish</strong> the course.</li>
+<li><strong>Finish</strong> one project.</li>
+</ol>
+<hr>
+</section>
+<section id="importance-of-a-project" class="level2">
+<h2 class="anchored" data-anchor-id="importance-of-a-project">Importance Of A Project</h2>
+<p>It is only through one well-crafted project we can show off our skills and get recognized.</p>
+<p>One of the former students and a fantastic alumni, <a href="https://christinemcleavey.com/">Christine McLeavy</a> who now is at <a href="https://openai.com/">OpenAI</a>, one of the top research organizations took this advice to heart given by Jeremy back then and made a fantastic AI system that could create new music using Deep Learning. Her work was featured and played on the BBC orchestra and helped her get the exclusive job at <a href="https://openai.com/">OpenAI</a></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="do_a_project.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 4: McCleavy sharing her insights in a postcast with Sanyam, another former student</em></figcaption>
+</figure>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The podcast can listened <a href="https://www.youtube.com/watch?v=xwXIaDrQvwE">here</a>.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="about-the-project" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-project">About The Project</h2>
+<ol type="1">
+<li><p>The project need not be something that no one built before. If you have found a very cool project done by others, you can create your own version too. That is fine!</p></li>
+<li><p>The project need not be world-changing.</p></li>
+</ol>
+<ul>
+<li>One of the students built a project for his fiancee that could recognize cousins.</li>
+<li>One of the students built an app called “Hot Dog Or Not Hot Dog” that was featured in the <em>Silicon Valley</em> TV series. It basically allows a user to take a pic of a food item and tell if it is a hot dog or not. <a href="https://www.youtube.com/watch?v=vIci3C4JkL0">(The Clip)</a></li>
+</ul>
+<ol start="3" type="1">
+<li>Or it can solve medicine as well :D!</li>
+</ol>
+<hr>
+</section>
+<section id="on-being-tenacious" class="level2">
+<h2 class="anchored" data-anchor-id="on-being-tenacious">On Being Tenacious</h2>
+<p>Tenacious means sticking to something till the end. This was found as the single most trait found among students who successfully completed the course.</p>
+<p>A thousand hurdles will come our way in various forms and we must learn to pick ourselves back.</p>
+<p>Tenacity is something we can choose! Just come back even if it is after a few months or even a year.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tenacity.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 5: On tenacity</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="radek-and-his-inspiring-story" class="level2">
+<h2 class="anchored" data-anchor-id="radek-and-his-inspiring-story">Radek And His Inspiring Story</h2>
+<p>Radek is one of the top alumni of the course and his story of making it big in ML is very inspiring.</p>
+<p>From being someone without a degree, not knowing how to code, and being stuck in a boring job, Radek made his way to winning Kaggle competitions and working in a medical AI startup . Currently, he is working in a nonprofit which is working on translating animal language.</p>
+<p>He began his journey but failed many many times. He comprised all of his learning in the book <a href="https://rosmulski.gumroad.com/l/learn_machine_learning?_ga=2.241334018.1213967688.1655731670-1783632984.1649757689&amp;_gl=1*r6ctvb*_ga*MTc4MzYzMjk4NC4xNjQ5NzU3Njg5*_ga_6LJN6D94N6*MTY1NTczMTY3MC4yLjAuMTY1NTczMTY3NS4w">Meta-learning</a>.</p>
+<p>It is good to have some role models when beginning the Deep Learning journey and Radek is a very good one.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="radek_insights.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 6: Radek Insights</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="important-insights-from-the-meta-learning-book" class="level2">
+<h2 class="anchored" data-anchor-id="important-insights-from-the-meta-learning-book">Important Insights From The “Meta Learning” Book</h2>
+<ol type="1">
+<li>Do not keep preparing to do the course or the project. Just start!</li>
+</ol>
+<ul>
+<li>Some students go on jumping from MOOC to MOOC studying all sorts of things and they never start.</li>
+<li>Don’t worry about the unknown stuff. The course will help us along the way. <img src="insight_1.png" id="fig-practical" class="img-fluid" alt="Figure 7: Practicality in fast.ai"></li>
+</ul>
+<ol start="2" type="1">
+<li>If one has no coding experience, s/he can take this opportunity to learn to Code. Harvard’s CS50 is a good resource. <img src="insight_2.png" id="fig-cs50" class="img-fluid" alt="Figure 8: Harvard’s CS50 course"></li>
+<li>There are a few topics that are expected to know as a CS student but are never taught. Some MIT students have created a lovely course that will help us learn these things and they called it <a href="https://missing.csail.mit.edu/">The Missing Semester Of Your CS Education</a>. This will help build the software environment foundations. <img src="insight_3.png" id="fig-legged" class="img-fluid" alt="Figure 9: 4 legged table"></li>
+</ol>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As of 2022, the <a href="https://www.youtube.com/watch?v=56sIyFjihEc&amp;list=PLfYUBJiXbdtSLBPJ1GMx-sQWf6iNhb8mM">Live Coding</a> playlist can help in setting up the necessary software environment replacing <a href="https://missing.csail.mit.edu/">The Missing Semester Of Your CS Education</a> in my opinion.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="share-your-work" class="level2">
+<h2 class="anchored" data-anchor-id="share-your-work">Share Your Work</h2>
+<p>Sharing the work and communicating it is a great way for us to enhance the learning process as well as make a brand or portfolio for us as we progress.</p>
+<p>Get rid of the discomfort, fear, and anxiety of getting exposed and just share it.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="share.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 10: Radek on sharing the work</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="steps-of-doing-a-lesson" class="level2">
+<h2 class="anchored" data-anchor-id="steps-of-doing-a-lesson">4 Steps Of ‘Doing’ A Lesson</h2>
+<p><strong>Step 1:</strong> Watch the lecture/Read a chapter from the book</p>
+<p><strong>Step 2:</strong> a) Run the notebook b) Experiment with it, by trying to tweak things.</p>
+<p><strong>Step 3:</strong> Reproduce the notebook from scratch</p>
+<p><strong>Step 4:</strong> Try to run with different data sets</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="four_steps.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 11: 4 steps of doing a lesson</em></figcaption>
+</figure>
+</div>
+<p>Do not worry if you can’t do all this from Week 1 right away. Move along and come back to do these cycles.</p>
+<p>Once you have done all this, either at the starting or after coming back, you can confidently say that you have completed the lesson and extracted its juice.</p>
+<hr>
+</section>
+<section id="notebook-servers-vs-linux-servers" class="level2">
+<h2 class="anchored" data-anchor-id="notebook-servers-vs-linux-servers">Notebook Servers VS Linux Servers</h2>
+<p>For the actual coding environment, we have two options: 1. Using Notebooks 2. Using Linux</p>
+<p>We have cloud servers for both of these categories, so we need not worry about setting them up on our local computers or laptops. Meaning even if one doesn’t have Jupyter Notebook installed, one can use the Notebook servers mentioned. Even if one doesn’t have a Linux operating system, one can use the Linux servers mentioned.</p>
+<p>The Notebook servers provided at the site will have all the code written and we just have to run it. It is simple for beginners. One can begin with this for the initial weeks.</p>
+<p>Using Linux is the professional way of doing it. This is how things will be done at jobs or startups. Initially one can skip this, but it will be highly effective if we can go through this process of doing things.</p>
+<p>Once we start to feel comfortable running the notebooks after Week 1 or Week 2, we can switch to the Linux servers.</p>
+<hr>
+</section>
+<section id="tutorial-on-getting-started-with-colab" class="level2">
+<h2 class="anchored" data-anchor-id="tutorial-on-getting-started-with-colab">Tutorial On Getting Started With Colab</h2>
+<p>Practical demonstration in the video, better to watch the part.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Not relevant for the 2022 course as we use Kaggle NBs.</p>
+</div>
+</div>
+<hr>
+</section>
+<section id="how-to-not-do-fast.ai" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-not-do-fast.ai">How To Not Do fast.ai</h2>
+<p>By NOT building models.</p>
+<p>Throughout the course, the sole purpose and the central activity of a learner must be running and building models. If a learner is not doing this, and instead, learning other things like Calculus, Real Analysis, etc. then s/he must stop and get back to building models. The course is meant for people who want to build models.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="how_not.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 12: How Not To Do fast.ai</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="get-feedback-through-practicing" class="level2">
+<h2 class="anchored" data-anchor-id="get-feedback-through-practicing">Get Feedback Through Practicing</h2>
+<p>Practicality is at the heart of really doing this course.</p>
+<p>Find a way to measure what is working vs what is not working through practically creating a model. Most of the learners will sense positive feedback from Week 1 when they see they have built a cool model.</p>
+<p>If you have read a research paper or something and you sense that you have elevated your understanding, then implement it. One cup of theory and one cup of practice!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="rinse.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 13: Right combination of theory &amp; practice</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="read-write-code-throughout-the-course" class="level2">
+<h2 class="anchored" data-anchor-id="read-write-code-throughout-the-course">Read &amp; Write Code Throughout The Course</h2>
+<p>One of the major outcomes of the course is that a learner can transform him/herself into a better developer than he/she is at the beginning.</p>
+<p>And this happens only if we do the following throughout the course: 1. Read Code 2. Write Code</p>
+<p>Read the fast.ai source codes, read the notebook codes, read code written by others and write your own code.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="read_write_code.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 14: Read &amp; write code</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="twitter-access-the-dl-world-through-it" class="level2">
+<h2 class="anchored" data-anchor-id="twitter-access-the-dl-world-through-it">Twitter: Access The DL World Through It</h2>
+<p>Through Twitter, one can access the whole world of DL and AI. Create a feed filled with cool and interesting things on DL and read it every day. Initially, we might understand only 0.5% of what the tweets are about but it is fine. We will slowly expand our horizons. <img src="jeremy_twitter.png" class="img-fluid" alt="Figure 15: Jeremy’s Twitter feed as an example"></p>
+<p>To get started:</p>
+<ol type="1">
+<li>Get on Twitter</li>
+<li>Follow <a href="https://twitter.com/jeremyphoward">Jeremy</a></li>
+<li>Go to his likes, and follow people who you find interesting</li>
+</ol>
+<p>Tweet your work as you progress and get recognized.</p>
+<hr>
+</section>
+<section id="start-blogging" class="level2">
+<h2 class="anchored" data-anchor-id="start-blogging">Start Blogging</h2>
+<p>Blogging takes us beyond twitter.</p>
+<p>Blogging is not about what we had for dinner or about what our morning routines are like.</p>
+<p><a href="https://medium.com/@racheltho/why-you-yes-you-should-blog-7d2544ac1045">This</a> blog post can be a great convincing for you!</p>
+<hr>
+<section id="what-to-write-in-a-blog" class="level3">
+<h3 class="anchored" data-anchor-id="what-to-write-in-a-blog">What to write in a blog?</h3>
+<p>Following are a few suggestions:</p>
+<ol type="1">
+<li>An idea we can keep in mind to begin blogging is this, “What things if I would have known a few months ago, would have helped me.” There is always going to be someone who is one step behind us, and it can be helpful to them.<br>
+</li>
+<li>Convert a video or a talk and convert it into a blog.</li>
+</ol>
+<ul>
+<li><strong>An example:</strong> <a href="https://www.linkedin.com/in/aroraaman">Aman Arora</a> one of the fast.ai alums converted Jeremy’s <a href="https://www.youtube.com/watch?v=2uygOz2fORo">talk</a> into a <a href="https://amaarora.github.io/2021/05/15/jh-meetup.html">blog</a>.</li>
+<li><strong>Benefits:</strong> People will be grateful to you and you can get recognized. The blog that Aman wrote was shared and highlighted by the <a href="https://www.linkedin.com/in/adrian-turner-02a415145">CEO</a> of <a href="https://data61.csiro.au/">Data61</a> which is a top Data Science body in Australia on LinkedIn.</li>
+<li>Most people prefer reading over watching a video and it can be helpful to them. You will learn and be useful at the same time.</li>
+</ul>
+<hr>
+</section>
+<section id="where-to-write" class="level3">
+<h3 class="anchored" data-anchor-id="where-to-write">Where to write?</h3>
+<p>Following are some easy to get started on the blogging journey. There is no reason for us to not to start blogging. 1. <a href="https://fastpages.fast.ai/">Fastpages</a> * One cool thing about this is that we can convert documents and notebooks into blogs easily. * It is in Github, so as we blog, we will learn about Git. * It uses Markdown, which will help us learn it as we blog 2. <a href="https://sites.google.com">Google Sites</a> If you feel intimidated with Git you can hop on to Google Sites. It has various themes we can use. 3. <a href="https://medium.com/">Medium</a> If you still think that Google Sites is time-consuming to get started you can start away at medium.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As of 2022, <a href="https://quarto.org/">Quarto</a> is a far better option than <a href="https://fastpages.fast.ai">fastpages</a>. <a href="https://forums.fast.ai/t/fastpages-deprecating-fastpages-in-favor-of-quarto/99095">This</a> thread explains it in detail.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="ml-coding-vs-other-coding" class="level2">
+<h2 class="anchored" data-anchor-id="ml-coding-vs-other-coding">ML Coding VS Other Coding</h2>
+<p>The key feature of ML Coding is generalization.</p>
+<p>Once an ML Code is written and trained with one set of data, it can be applied to another set of data and get good results.</p>
+<p>Even the pieces of codes we explore in the course have a strong ability to generalize themselves across various other types of data. So as we progress with the course, whenever we learn to build a model, one key question to ask constantly is “How will this model generalize well?”. We need to learn measures of generalizations.</p>
+<p>The places where it can generalize are broad, be it a Kaggle competition or a prototype, or a production unit at work.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="gem.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 16: Hidden gem of ML</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="importance-of-a-good-validation-set" class="level2">
+<h2 class="anchored" data-anchor-id="importance-of-a-good-validation-set">Importance Of A Good Validation Set</h2>
+<p>We will learn about validation sets in Lesson 1, but Jeremy wanted to highlight the importance of selecting a good validation set here.</p>
+<p>The basic idea is this, in order to create a model which is really good and can be generalized well, we need to use data that facilitates well for the model so that it can be applied in real life.</p>
+<p>Read <a href="https://www.fast.ai/posts/2017-11-13-validation-sets.html">this</a> for more info.</p>
+<hr>
+</section>
+<section id="ml-code-is-hard-to-write" class="level2">
+<h2 class="anchored" data-anchor-id="ml-code-is-hard-to-write">ML Code Is Hard To Write</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="ml_hard.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 17: Radek’s insights</em></figcaption>
+</figure>
+</div>
+<p>Jeremy always assumes that every line of ML code he writes is wrong and according to him he is right most of the time.</p>
+<p>Although there can be many ways the code can be wrong, one of the reasons for the hardness of writing ML code arises because most of the time we can not see we are wrong, unlike the usual software work, we can at least see our errors in front of us.</p>
+<p>Some examples which might remain hidden are as follows:</p>
+<ul>
+<li>Some random set of images being upside down and it got into the system.</li>
+<li>Name not being stored in the database.</li>
+<li>Title is not centered</li>
+</ul>
+<p>To fix this we need to begin by creating a baseline for a project.</p>
+<hr>
+</section>
+<section id="baseline-for-projects" class="level2">
+<h2 class="anchored" data-anchor-id="baseline-for-projects">Baseline For Projects</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="baseline.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 18: On baseline for projects</em></figcaption>
+</figure>
+</div>
+<p>When beginning to do a project, we must begin first by creating a simple baseline and creating the simplest model we can.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Common mistakes: Trying to do a very big high-level complicated project for months and failing it.</p>
+</div>
+</div>
+<p><em>“Successful ML models are built in the simplest possible ways which begin first by sending something from end-to-end first, and then are slowly incrementing it.”</em></p>
+<p>It might feel very silly and dumb, to begin with, but that’s how all the pros do it.</p>
+<hr>
+</section>
+<section id="kaggle-competitions-as-projects" class="level2">
+<h2 class="anchored" data-anchor-id="kaggle-competitions-as-projects">Kaggle Competitions As Projects</h2>
+<p>Kaggle Competitions can be used as good HWs and doing projects. Begin on your first Kaggle competition, not as a competitor but just to learn. Pick a competition and go through the complete process of finishing it. It will teach us a lot. After a few months, you will be much developed in our learning and who knows we might even come in the top 50%.</p>
+<p>Kaggle is closer to the real world and not completely representative, which makes it easier for us not to worry about deployment and inference speed but gives us that end-to-end experience.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="kaggle.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 19: On Kaggle Competitions</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="on-finding-a-job" class="level2">
+<h2 class="anchored" data-anchor-id="on-finding-a-job">On Finding A Job</h2>
+<p>Learners who completed Fast.ai course went on to grab very very great jobs.</p>
+<p>As we progress with the course, we can parallelly build our job portfolios. Our job portfolios will be everything from posts on the forums, blogs we write, Github repositories, participation in Kaggle, and so on.</p>
+<p>The standard big old companies might not understand the influence and depth of our work as most of the profiles are reviewed by HR members.</p>
+<p>However, startups and many other companies can truly grasp our potential based on our impact on Github, Kaggle, etc.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="job.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><em>Figure 20: On finding a job</em></figcaption>
+</figure>
+</div>
+<hr>
+</section>
+<section id="closing" class="level2">
+<h2 class="anchored" data-anchor-id="closing">Closing</h2>
+<p>Another reason to finish this course, is to allow oneself to move beyond it doing the next course which is the part 2.</p>
+<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The end section of the lesson covers setting up the software background such as AWS EC2. I haven’t included its summary becuase the software setup is different in the 2022 version, it was not relevant. The software setups will be covered in the regular lessons of the 2022 course.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../../../knowledge-stores/books/fastai-textbook/ch/index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">List Of Themes To Expect In The fast.ai Textbook</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../../../knowledge-stores/courses/practical-deep-learning-for-coders/v5(2022)/lesson-0/00-introduction.html" class="pagination-link">
+        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
