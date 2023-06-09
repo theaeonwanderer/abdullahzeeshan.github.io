@@ -8,6 +8,7 @@ categories: [education, fast.ai]
 toc: true
 fig-align: center
 fig-cap-location: bottom
+sidebar: false
 ---
 
 ![](traffic_light.jpg)

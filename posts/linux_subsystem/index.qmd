@@ -3,12 +3,13 @@ title: "Running A Linux Subsystem In Windows"
 author: "Abdullah Zeeshan"
 date: "2022/11/24"
 date-modified: "2023/05/28"
-categories: [fast.ai, notes, tutorial]
+categories: [tutorial, linux]
 toc: true
 description: A quick guide
 unicode: true
 fig-align: center
 fig-cap-location: bottom
+sidebar: false
 ---
 
 ## Introduction

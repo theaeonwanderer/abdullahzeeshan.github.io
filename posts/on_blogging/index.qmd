@@ -4,6 +4,7 @@ author: "Abdullah Zeeshan"
 date: "2023-05-27"
 categories: [experiences, tips]
 description: Sharing some honest experiences and tips on blogging
+sidebar: false
 ---
 ![](happy_blogging.jpg)
 

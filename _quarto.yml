@@ -8,9 +8,8 @@ website:
     right:
       - text: "About" 
         file: about.qmd
+      - icon: twitter
+        href: https://twitter.com/theaeonwanderer
       - icon: github
         href: https://github.com/theaeonwanderer
-
-
-
-
+  page-navigation: true

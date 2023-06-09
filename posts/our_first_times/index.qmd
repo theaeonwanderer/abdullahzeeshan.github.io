@@ -5,6 +5,7 @@ date: "2022-11-11"
 categories: [writing]
 toc: false
 description: My first blog
+sidebar: false
 ---
 
 Remember the first time you gazed through the night sky filled with twinkling stars? Perhaps, you were a little child lying on your Dadi's lap, listening to lovely stories as you gazed your way through the abyss. Or perhaps it was the time when you gazed outside the car window as your Papa drove swiftly on the road.

@@ -4,9 +4,13 @@ image: images/about/profile_picture.png
 about:
   template: jolla
   links:
+    - icon: twitter
+      text: twitter
+      href: https://twitter.com/theaeonwanderer
     - icon: github
-      text: Github
+      text: GitHub
       href: https://github.com/theaeonwanderer
+sidebar: false
 ---
 
 I am self learning Data Science, which encapsulates multiple fields. I am currently exploring Deep Learning, Machine learning, and AI. I wish to work on building cool AI systems someday.
