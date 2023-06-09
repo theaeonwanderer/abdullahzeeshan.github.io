@@ -15,4 +15,5 @@ website:
   page-navigation: true
 
 format:
-  toc: true
+  html:
+    toc: true
